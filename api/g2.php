@@ -1,6 +1,6 @@
 <?php
 	error_reporting(0);
-	include "curl_gd.php";
+	include "gg.php";
 	$base_url = 'http://demo.filedeo.stream/drive';
 	$server = 'drive.google.com';
 
