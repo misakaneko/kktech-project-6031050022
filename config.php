@@ -30,8 +30,9 @@
 	if(ses("test") != "FALSE" && ses("test") != ""){} else {die();}
 	
 	
-	define("folder","z-include/");
-	define("folder_filelog","z-content/filelog/");
+	define('ABSPATH', dirname(__FILE__).'/');
+	define("folder",ABSPATH."z-include/");
+	define("folder_filelog",ABSPATH."z-content/filelog/");
 	
 	
 	

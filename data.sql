@@ -1,0 +1,69 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 07, 2018 at 06:25 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `library61`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data`
+--
+
+CREATE TABLE `data` (
+  `id` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `data` blob NOT NULL,
+  `date` text NOT NULL,
+  `type` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data`
+--
+
+INSERT INTO `data` (`id`, `name`, `data`, `date`, `type`) VALUES
+(232, '2ws2s', 0x313239384e4452445554567954326f304e4564534e44524c54445130537a45304e4539364e44525053545130543341304e454e534e546332547a5130523167304e4564514e57394c65545130523167304e4564464e4452505654513053326b304e4539504e6c6f72656a5678567a6b304e454e524e557779597a5678563351314e564e764e4452504e7a55314d6d67314e586c6e4e545654623146725a4534304e454e534e54566d4e7a4577557a5130523167304e4564314e6c6f72656a5678567a6b383935393d, '2018-12-07 06:04:03', '1222ws2');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `data`
+--
+ALTER TABLE `data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `data`
+--
+ALTER TABLE `data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
