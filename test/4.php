@@ -17,27 +17,7 @@ function land($land, $value){
 	);
 	  
 	$cars = json_encode($cars);
-	$cars = json_decode($cars, true);
+	$cars = var_dump(json_decode($cars, true));
+	echo $cars;
+	//$cars = json_decode($cars, true);
 	//echo $cars[0]['th'];
-	
-    $str = '{ 
-
-"players":[
-   {
-
-        "name":"Moldova",
-        "image":"/Images/Moldova.jpg",
-        "roll_over_image":"tank.jpg"
-   },
-   {
-
-        "name":"Georgia",
-        "image":"/Images/georgia.gif",
-        "roll_over_image":"tank.jpg"
-   } ]}';
-
-
- $arr = json_decode($str, true);
- $arrne['name'] = "dsds";
- array_push( $arr['players'], $arrne );
- print_r($arr);
