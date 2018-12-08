@@ -2022,8 +2022,10 @@ function land_insert($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
 	$cars = json_decode($cars, true);
+	$earth = json_decode($earth, true);
 	for($i=0;$i<200;$i++){
-		if(isset($cars[$i]['f'])){
+		if(isset($cars[$i]['alpha2'])){
+			return '';
 		} else {
 			$i = 9999999;
 			return 'false';
