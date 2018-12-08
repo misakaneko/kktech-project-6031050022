@@ -23,10 +23,14 @@ $cars = json_decode($cars, true);
 for($i=0;$i<5;$i++){
 	if(isset($cars[$i]['f'])){
 		echo json_encode(array(	'f' => $cars[$i]['f'],
-								$cars[$i]['f'] => $cars[$i][$cars[$i]['f']]));
+								$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
+		);
+								
 	} else {
+		$l = $i;
 		$i = 5;
 	}
 }
+echo json_encode(array(	'f' => $l,));
 	//$cars = json_decode($cars, true);
 	//echo $cars[0]['th'];
