@@ -20,9 +20,9 @@ function land($land, $value){
 	echo $cars;
 $cars = json_decode($cars, true);
 
-for($i=0;$i<5;$i++){
+for($i=0,$f='';$i<5;$i++){
 	if(isset($cars[$i]['f'])){
-		echo json_encode(array(	'f' => $cars[$i]['f'],
+		$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
 								$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 		);
 								
@@ -31,6 +31,6 @@ for($i=0;$i<5;$i++){
 		$i = 5;
 	}
 }
-echo json_encode(array(	'f' => $l,));
+echo $f.json_encode(array(	'f' => $l,));
 	//$cars = json_decode($cars, true);
 	//echo $cars[0]['th'];
