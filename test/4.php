@@ -17,7 +17,11 @@ function land($land, $value){
 	);
 	  
 	$cars = json_encode($cars);
-	$cars = var_dump(json_decode($cars, true));
 	echo $cars;
+$cars = json_decode($cars, true);
+for($i=0;$i<1000;$i++){
+	$i = $i;
+}
+echo $i;
 	//$cars = json_decode($cars, true);
 	//echo $cars[0]['th'];
