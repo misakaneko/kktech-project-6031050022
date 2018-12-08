@@ -35,7 +35,7 @@
 	define("folder_filelog",ABSPATH."z-content/filelog/");
 	define("folder_template",ABSPATH."z-content/template/");
 	
-	
+	$_SESSION["TEMPLATE"] = TEMPLATE;
 	
 	header('Content-Type: text/html; charset=utf-8');
 

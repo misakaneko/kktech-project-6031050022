@@ -10,5 +10,5 @@
 	}
 	function get_body(){
 	}
-	require_once(folder_template."index.php");
+	require_once(folder_template.TEMPLATE."/index.php");
 ?>
