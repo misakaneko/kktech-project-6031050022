@@ -8,7 +8,6 @@
 	if($a == $b || $a == $c){
 		die();
 	} else {}
-	//get_header();
-	//get_body();
-	echo $_SERVER['REQUEST_URI'];
+	get_header();
+	get_body();
 ?>
