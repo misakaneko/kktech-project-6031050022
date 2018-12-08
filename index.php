@@ -1,5 +1,4 @@
 <?php
-
 	define("TEMPLATE","library61");
 	define('ABSPATH', dirname(__FILE__).'/');
 
