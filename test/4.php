@@ -30,7 +30,7 @@ for($i=0,$f='';$i<5;$i++){
 		$l = $i;
 		$i = 5;
 	}
-}
+} 
 echo $f.json_encode(array(	'f' => $l,));
 	//$cars = json_decode($cars, true);
 	//echo $cars[0]['th'];
