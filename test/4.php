@@ -1,7 +1,9 @@
 <?php
-$laun = array(
-	array('รหัสนักศึกษา','Student ID'),
-	array('โรงเรียน','School')
+$cars = array(
+	'th' => '1',
+	'jp' => '2',
 );
-
-echo json_encode($laun);
+  
+$cars = json_encode($cars);
+$cars = json_decode($cars, true);
+echo $cars['jp'];
