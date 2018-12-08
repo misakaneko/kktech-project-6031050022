@@ -34,8 +34,10 @@
 	define("folder",ABSPATH."z-include/");
 	define("folder_filelog",ABSPATH."z-content/filelog/");
 	define("folder_template",ABSPATH."z-content/template/");
+	define("folder_ztemplate","z-content/template/");
 	
 	$_SESSION["TEMPLATE"] = TEMPLATE;
+	$_SESSION["Z-TEMPLATE"] = folder_ztemplate;
 	
 	header('Content-Type: text/html; charset=utf-8');
 

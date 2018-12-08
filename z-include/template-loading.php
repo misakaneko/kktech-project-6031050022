@@ -1,7 +1,7 @@
 <?php
 	function detect_url(){
 		$a = $_SERVER['REQUEST_URI'];
-		$b = '/'.TEMPLATE.'/';
+		$b = '/'.$_SESSION["TEMPLATE"].'/';
 		if($a == $b){
 			return 1;
 		} else {}

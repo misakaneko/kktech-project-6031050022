@@ -3,11 +3,12 @@
 		session_start();
 	}
 	$a = $_SERVER['REQUEST_URI'];
-	$b = '/'.TEMPLATE.'/';
-	if($a == $b){
-		return 1;
+	$b = '/'.$_SESSION["TEMPLATE"].'/';
+	$c = '/'.$_SESSION["TEMPLATE"].'/';
+	if($a == $b || $a == $c){
+		die();
 	} else {}
 	//get_header();
 	//get_body();
-	echo 1;
+	echo $_SERVER['REQUEST_URI'];
 ?>
