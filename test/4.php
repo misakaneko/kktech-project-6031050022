@@ -2019,6 +2019,8 @@ $land = 'en';
 $value = '3';
 	$cars = json_encode($cars);
 function land_insert($land,$value){
+}
+function land_update($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
 	$cars = json_decode($cars, true);
@@ -2057,4 +2059,4 @@ function land_insert($land,$value){
 		}
 	}
 }
-echo land_insert('kr','3');
+echo land_update('kr','3');
