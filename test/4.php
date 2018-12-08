@@ -9,7 +9,8 @@ function land($land, $value){
 	$cars = json_decode($cars, true);
 	return $cars['th'];
 }
-//echo land('th','');
+$land = 'en';
+$value = '3';
 
 	$cars = array(
 		 array('f' => 'th','th' => '1'),
@@ -19,7 +20,17 @@ function land($land, $value){
 	$cars = json_encode($cars);
 	echo $cars;
 $cars = json_decode($cars, true);
-
+for($i=0,$f='';$i<5;$i++){
+	if(isset($cars[$i]['f'])){
+		if($cars[$i]['f'] != $land){
+			echo $cars[$i]['f'];
+		} else {
+			$i = 9999999;
+		}
+	} else {
+		$i = 9999999;
+	}
+} 
 for($i=0,$f='';$i<5;$i++){
 	if(isset($cars[$i]['f'])){
 		$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
@@ -32,5 +43,3 @@ for($i=0,$f='';$i<5;$i++){
 	}
 } 
 echo $f.json_encode(array(	'f' => $l,));
-	//$cars = json_decode($cars, true);
-	//echo $cars[0]['th'];
