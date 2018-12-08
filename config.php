@@ -3,7 +3,7 @@
 	$dsv_sql = ["", "localhost", "root", "", "library61"];
 	$dsv_con = @new mysqli($dsv_sql[1], $dsv_sql[2], $dsv_sql[3], $dsv_sql[4]);
 	if ($dsv_con->connect_error) {
-		echo "<!--";die("Connection failed: " . $conn->connect_error);
+		echo "<!--";die("Connection failed: " . $dsv_con->connect_error);
 	} else {}
 	function ses($value){if(isset($_SESSION[$value])){return $_SESSION[$value];} else {return "FALSE";}}
 	function sed($name,$value){if(strlen($name) >= 2){} else {die();}$_SESSION[$name] = $value;}

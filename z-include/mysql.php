@@ -4,7 +4,7 @@
 		$date = date("Y-m-d h:i:s");
 		$data = base74("encode", $value, "4", "ki");
 		$sql = "INSERT INTO data (type, name, data, date) VALUES ('$type', '$name', '$data', '$date')";
-		if ($dsv_con->query($sql) === TRUE) {echo "New record created successfully";} else {echo "Error: " . $sql . "<br>" . $dsv_con->error;}
+		if ($dsv_con->query($sql) === TRUE) {echo "true";} else {echo "Error: " . $sql . "<br>" . $dsv_con->error;}
 	}
 	function sql_load($type, $name, $limit){
 		global $dsv_con;
@@ -20,10 +20,12 @@
 		}
 	}
 	function sql_update($id, $value){
-		$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-		if ($conn->query($sql) === TRUE) {
-			echo "Record updated successfully";
+		global $dsv_con;
+		$value = base74("encode", $value, "4", "ki");
+		$sql = "UPDATE data SET data='$value' WHERE id=$id";
+		if ($dsv_con->query($sql) === TRUE) {
+			echo "true";
 		} else {
-			echo "Error updating record: " . $conn->error;
+			echo "Error updating record: " . $dsv_con->error;
 		}
 	}

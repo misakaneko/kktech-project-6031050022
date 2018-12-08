@@ -6,6 +6,6 @@
 	
 	if(isBot()){exit();}
 	
-	require constant("folder")."template-loading.php";
+	//require constant("folder")."template-loading.php";
 	
 ?>
