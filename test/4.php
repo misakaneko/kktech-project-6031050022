@@ -31,15 +31,18 @@ function land_insert($land,$value){
 												
 					} else {
 						$l = $i;
-						$i = 5;
+						$i = 9999999;
 					}
 				} 
-				echo '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
+				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
 				$i = 9999999;
+				return 'false';
 			}
 		} else {
 			$i = 9999999;
+			return 'false';
 		}
 	}
 }
+echo land_insert('kr','3');
