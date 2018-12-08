@@ -23,23 +23,22 @@ $cars = json_decode($cars, true);
 for($i=0,$f='';$i<5;$i++){
 	if(isset($cars[$i]['f'])){
 		if($cars[$i]['f'] != $land){
-			echo $cars[$i]['f'];
+			for($i=0,$f='';$i<5;$i++){
+				if(isset($cars[$i]['f'])){
+					$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
+											$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
+					);
+											
+				} else {
+					$l = $i;
+					$i = 5;
+				}
+			} 
+			echo '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 		} else {
 			$i = 9999999;
 		}
 	} else {
 		$i = 9999999;
 	}
-} 
-for($i=0,$f='';$i<5;$i++){
-	if(isset($cars[$i]['f'])){
-		$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
-								$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
-		);
-								
-	} else {
-		$l = $i;
-		$i = 5;
-	}
-} 
-echo $f.json_encode(array(	'f' => $l,));
+}
