@@ -1,16 +1,4 @@
 <?php
-function land($land, $value){
-	$cars = array(
-		'th' => '1',
-		'jp' => '2',
-	);
-	  
-	$cars = json_encode($cars);
-	$cars = json_decode($cars, true);
-	return $cars['th'];
-}
-$land = 'en';
-$value = '3';
 $earth = '[
     {
         "name": "กรีซ",
@@ -2017,8 +2005,21 @@ $earth = '[
 		 array('f' => 'th','th' => '1'),
 		 array('f' => 'jp','jp' => '2'),
 	);
+function land($land, $value){
+	$cars = array(
+		'th' => '1',
+		'jp' => '2',
+	);
+	  
+	$cars = json_encode($cars);
+	$cars = json_decode($cars, true);
+	return $cars['th'];
+}
+$land = 'en';
+$value = '3';
 	$cars = json_encode($cars);
 function land_insert($land,$value){
+	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
 	$cars = json_decode($cars, true);
 	for($i=0,$f='';$i<5;$i++){
