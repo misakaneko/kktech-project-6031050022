@@ -3,8 +3,12 @@
 		$a = $_SERVER['REQUEST_URI'];
 		$b = '/'.TEMPLATE.'/';
 		if($a == $b){
-			echo 1;
+			return 1;
 		} else {}
+	}
+	function get_header(){
+	}
+	function get_body(){
 	}
 	require_once(folder_template."index.php");
 ?>
