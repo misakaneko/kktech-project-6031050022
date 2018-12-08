@@ -2060,9 +2060,10 @@ function land_insert($land,$value){
 function land_update($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
-	$cars = '';
+	//$cars = '';
 	if($cars == ''){
 		$cars = '[{"f":"null","null":"0"}]';
+		$gf = '';
 	}
 	$cars = json_decode($cars, true);
 	$earth = json_decode($earth, true);
@@ -2075,20 +2076,23 @@ function land_update($land,$value){
 			return 'false';
 		}
 	}
-	for($i=0;$i<5;$i++){
+	for($i=0;$i<200;$i++){
 		if(isset($cars[$i]['f'])){
 			if($cars[$i]['f'] != $land){
-				for($i=0,$f='';$i<5;$i++){
+				for($i=0,$f='';$i<200;$i++){
 					if(isset($cars[$i]['f'])){
 						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
 												$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 						);
-												
+						if($f == ''){$f = $f;} else {$f = $f.',';}
 					} else {
 						$l = $i;
 						$i = 9999999;
 					}
-				} 
+				}
+				if(isset($gf)){
+					$f = '';
+				}
 				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
 				$i = 9999999;
