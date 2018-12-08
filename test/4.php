@@ -2024,8 +2024,9 @@ function land_insert($land,$value){
 	$cars = json_decode($cars, true);
 	$earth = json_decode($earth, true);
 	for($i=0;$i<200;$i++){
-		if(isset($cars[$i]['alpha2'])){
-			return '';
+		if(isset($earth[$i]['alpha2'])){
+			if($earth[$i]['alpha2'] == $land){
+			} else {}
 		} else {
 			$i = 9999999;
 			return 'false';
