@@ -1,6 +1,8 @@
 <?php
-define("folder",TEMPLATE."library61");
 
-require_once "config.php";
-require_once "include.php";
-if(isBot()){exit();}
+	define("TEMPLATE","library61");
+	define('ABSPATH', dirname(__FILE__).'/');
+
+	require_once "config.php";
+	require_once "include.php";
+?>
