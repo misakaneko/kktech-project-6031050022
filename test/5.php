@@ -2021,11 +2021,6 @@ $value = '3';
 function land_insert($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
-	//$cars = '';
-	if($cars == ''){
-		$cars = '[{"f":"null","null":"0"}]';
-		$gf = '';
-	}
 	$cars = json_decode($cars, true);
 	$earth = json_decode($earth, true);
 	for($i=0;$i<200;$i++){
@@ -2037,23 +2032,20 @@ function land_insert($land,$value){
 			return 'false';
 		}
 	}
-	for($i=0;$i<200;$i++){
+	for($i=0;$i<5;$i++){
 		if(isset($cars[$i]['f'])){
 			if($cars[$i]['f'] != $land){
-				for($i=0,$f='';$i<200;$i++){
+				for($i=0,$f='';$i<5;$i++){
 					if(isset($cars[$i]['f'])){
 						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
 												$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 						);
-						if($f == ''){$f = $f;} else {$f = $f.',';}
+												
 					} else {
 						$l = $i;
 						$i = 9999999;
 					}
-				}
-				if(isset($gf)){
-					$f = '';
-				}
+				} 
 				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
 				$i = 9999999;
@@ -2090,7 +2082,7 @@ function land_update($land,$value){
 				for($i=0,$f='';$i<200;$i++){
 					if(isset($cars[$i]['f'])){
 						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
-												$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
+							$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 						);
 						if($f == ''){$f = $f;} else {$f = $f.',';}
 					} else {
@@ -2103,8 +2095,23 @@ function land_update($land,$value){
 				}
 				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
-				$i = 9999999;
-				return 'false';
+				for($i=0,$f='';$i<200;$i++){
+					if(isset($cars[$i]['f'])){
+						if(isset($land)){
+							$f = $f.json_encode(array(	'f' => $cars[$i]['f'],$cars[$i]['f'] => $cars[$i][$cars[$i]['f']]));
+						} else {
+							$f = $f.json_encode(array(	'f' => $cars[$i]['f'],$cars[$i]['f'] => $cars[$i][$cars[$i]['f']]));
+						}
+						if($f == ''){$f = $f;} else {$f = $f.',';}
+					} else {
+						$l = $i;
+						$i = 9999999;
+					}
+				}
+				if(isset($gf)){
+					$f = '';
+				}
+				return '['.$f.']';
 			}
 		} else {
 			$i = 9999999;
@@ -2112,4 +2119,4 @@ function land_update($land,$value){
 		}
 	}
 }
-echo land_update('jp','3');
+echo land_update('th','3');
