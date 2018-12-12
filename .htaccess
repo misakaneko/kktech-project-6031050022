@@ -1,6 +1,11 @@
 DirectoryIndex index.php index.asp index.html index.htm
 
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
 RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^library61/(.*) /z-content/template/library61/$1
 
 
