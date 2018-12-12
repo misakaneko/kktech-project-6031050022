@@ -1,6 +1,5 @@
 DirectoryIndex index.php index.asp index.html index.htm
 
-Options +FollowSymLinks
 RewriteEngine On
 RewriteRule ^library61/(.*) /z-content/template/library61/$1
 
