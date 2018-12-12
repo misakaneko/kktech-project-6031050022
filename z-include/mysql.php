@@ -32,3 +32,4 @@
 	}
 	
 	define('typeMultilanguage',substr(md5('typeMultilanguage'.key),0,6));
+	?>
