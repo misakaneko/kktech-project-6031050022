@@ -6,7 +6,7 @@
 	if(md5($_SERVER['SERVER_ADDR']) == '3c4cf297a20c52e0194a2559db0ef242'){
 		if(file_exists("pass.txt") == 1){
 			$pass = str_replace('
-','',file_get_contents("pass.txt");
+','',file_get_contents("pass.txt"));
 		} else {
 			$pass = "";
 		}
