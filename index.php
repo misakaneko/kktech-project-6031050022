@@ -5,6 +5,10 @@
 	ECHO ABSPATH;
 	//require_once "config.php";
 	//require_once "include.php";
-	$pass = file_get_contents("pass.txt");
+	if(file_exists("pass.txt") == 1){
+		$pass = file_get_contents("pass.txt");
+	} else {
+		$pass = "";
+	}
 	echo $pass;
 ?>
