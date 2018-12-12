@@ -57,7 +57,7 @@ if(isset($_GET['t'])){ ?>
 	} else {
 		$contents = sql_load('0x77777', 'test', 1);
 	}
-	echo $contents;
+	echo '['.$contents.']';
 	/*echo '['.json_encode(array(
 		"ch1" => rand(0,1),
 		"ch2" => rand(0,1),
