@@ -5,9 +5,8 @@
 	define("bit","4");
 	if(md5($_SERVER['SERVER_ADDR']) == '3c4cf297a20c52e0194a2559db0ef242'){
 		$dsv_sql = ["", "localhost", "root", "", "library61"];
-	} else {
-		$dsv_sql = ["", "localhost", "root", "", "library61"];
-	}
+	} else {$pass = "";}
+	$dsv_sql = ["", "localhost", "root", "$pass", "library61"];
 	$dsv_con = @new mysqli($dsv_sql[1], $dsv_sql[2], $dsv_sql[3], $dsv_sql[4]);
 	if ($dsv_con->connect_error) {
 		echo "<!--";die("Connection failed: " . $dsv_con->connect_error);
