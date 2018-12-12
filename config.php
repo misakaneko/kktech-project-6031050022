@@ -14,6 +14,7 @@
 	$dsv_sql = ["", "localhost", "root", "$pass", "library61"];
 	$dsv_con = @new mysqli($dsv_sql[1], $dsv_sql[2], $dsv_sql[3], $dsv_sql[4]);
 	if ($dsv_con->connect_error) {
+		echo $pass;
 		echo "<!--";die("Connection failed: " . $dsv_con->connect_error);
 	} else {}
 	function ses($value){if(isset($_SESSION[$value])){return $_SESSION[$value];} else {return "FALSE";}}
