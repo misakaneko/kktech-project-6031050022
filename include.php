@@ -7,5 +7,4 @@
 	if(isBot()){exit();}
 	
 	require constant("folder")."template-loading.php";
-	
 ?>
