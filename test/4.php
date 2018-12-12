@@ -2001,31 +2001,21 @@ $earth = '[
         "iso3166_2": "ISO 3166-2:SJ"
     }
 ]';
+	$earth = json_decode($earth, true);
+	for($i=0;$i<200;$i++){
+		//echo $earth[$i]['alpha2'].'|';
+	}
 	$cars = array(
 		 array('f' => 'th','th' => '1'),
 		 array('f' => 'jp','jp' => '2'),
 	);
-function land($land, $value){
-	$cars = array(
-		'th' => '1',
-		'jp' => '2',
-	);
-	  
-	$cars = json_encode($cars);
-	$cars = json_decode($cars, true);
-	return $cars['th'];
-}
+
 $land = 'en';
 $value = '3';
 	$cars = json_encode($cars);
 function land_insert($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
-	//$cars = '';
-	if($cars == ''){
-		$cars = '[{"f":"null","null":"0"}]';
-		$gf = '';
-	}
 	$cars = json_decode($cars, true);
 	$earth = json_decode($earth, true);
 	for($i=0;$i<200;$i++){
@@ -2037,23 +2027,20 @@ function land_insert($land,$value){
 			return 'false';
 		}
 	}
-	for($i=0;$i<200;$i++){
+	for($i=0;$i<5;$i++){
 		if(isset($cars[$i]['f'])){
 			if($cars[$i]['f'] != $land){
-				for($i=0,$f='';$i<200;$i++){
+				for($i=0,$f='';$i<5;$i++){
 					if(isset($cars[$i]['f'])){
 						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
 												$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 						);
-						if($f == ''){$f = $f;} else {$f = $f.',';}
+												
 					} else {
 						$l = $i;
 						$i = 9999999;
 					}
-				}
-				if(isset($gf)){
-					$f = '';
-				}
+				} 
 				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
 				$i = 9999999;
@@ -2068,21 +2055,19 @@ function land_insert($land,$value){
 function land_update($land,$value){
 	global $earth;
 	$cars = '[{"f":"th","th":"1"},{"f":"jp","jp":"2"}]';
-	//$cars = '';
+	$cars = '';
 	if($cars == ''){
 		$cars = '[{"f":"null","null":"0"}]';
 		$gf = '';
 	}
 	$cars = json_decode($cars, true);
-	$earth = json_decode($earth, true);
-	for($i=0;$i<200;$i++){
-		if(isset($earth[$i]['alpha2'])){
-			if($earth[$i]['alpha2'] == $land){
-			} else {}
-		} else {
-			$i = 9999999;
-			return 'false';
-		}
+	if(strlen($land) <= 2){
+	} else {
+		return 'false';
+	}
+	if(preg_match('/GR|GL|GU|KH|GP|GT|QA|GH|GA|CV|GY|GN|GW|CW|GD|KR|KP|CX|GS|SS|NF|BV|UM|HM|GG|GM|CI|KM|CR|KZ|KI|CU|KG|KW|KE|CA|CM|HR|CO|GE|JO|JM|DJ|CN|JE|TD|CL|CZ|SM|WS|SA|EH|ZW|SY|SD|SR|SC|KN|LC|VC|SH|SN|RS|ST|SL|BL|PM|MF|ZM|SO|CY|JP|DM|DK|TT|TO|TL|TR|TN|TV|TM|TG|TW|TJ|TZ|TK|TH|VA|NO|NA|NR|NI|NC|NZ|NU|NL|AN|NP|NG|NE|BR|IO|BN|BW|BA|BD|BG|BB|BH|BS|BI|BF|BJ|BE|BY|BZ|BM|BO|PR|PK|PA|PG|PY|PS|PW|PE|PT|PL|FR|MM|FI|PH|FJ|GF|TF|PF|BT|MN|MS|ME|MU|MR|MD|MT|MV|MO|MK|MG|YT|MQ|MW|ML|MY|MX|MZ|MC|MA|FM|GI|UG|UA|YE|DE|RW|RU|RE|RO|LU|LV|LA|LI|LT|LY|LS|LB|LR|VU|WF|VE|VN|LK|ES|SK|SI|SZ|CH|SE|US|AE|GB|CG|DO|CD|CF|SG|CK|KY|CC|SB|TC/i', $land)){
+	} else {
+		return 'false';
 	}
 	for($i=0;$i<200;$i++){
 		if(isset($cars[$i]['f'])){
@@ -2090,7 +2075,7 @@ function land_update($land,$value){
 				for($i=0,$f='';$i<200;$i++){
 					if(isset($cars[$i]['f'])){
 						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
-												$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
+							$cars[$i]['f'] => $cars[$i][$cars[$i]['f']])
 						);
 						if($f == ''){$f = $f;} else {$f = $f.',';}
 					} else {
@@ -2103,8 +2088,26 @@ function land_update($land,$value){
 				}
 				return '['.$f.json_encode(array(	'f' => $land, $land => $value)).']';
 			} else {
-				$i = 9999999;
-				return 'false';
+				for($i=0,$f='';$i<200;$i++){
+					if(isset($cars[$i]['f'])){
+						if($land == $cars[$i]['f']){
+							$c = str_replace($cars[$i][$cars[$i]['f']],$value,$cars[$i][$cars[$i]['f']]);
+						} else {
+							$c = $cars[$i][$cars[$i]['f']];
+						}
+						$f = $f.json_encode(array(	'f' => $cars[$i]['f'],
+							$cars[$i]['f'] => $c)
+						);
+						if($f == ''){$f = $f;} else {$f = $f.',';}
+					} else {
+						$l = $i;
+						$i = 9999999;
+					}
+				}
+				if(isset($gf)){
+					$f = '';
+				}
+				return '['.$f.']';
 			}
 		} else {
 			$i = 9999999;
@@ -2112,4 +2115,4 @@ function land_update($land,$value){
 		}
 	}
 }
-echo land_update('jp','3');
+echo land_update('th','test');
