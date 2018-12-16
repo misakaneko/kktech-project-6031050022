@@ -18,12 +18,12 @@
 		//echo $pass;
 		echo "<!--";die("Connection failed: " . $dsv_con->connect_error);
 	} else {}
-	function ses($value){if(isset($_SESSION[$value])){return $_SESSION[$value];} else {return "FALSE";}}
+	function ses($value){if(isset($_SESSION[$value])){return $_SESSION[$value];} else {return "false";}}
 	function sed($name,$value){if(strlen($name) >= 2){} else {die();}$_SESSION[$name] = $value;}
 	
 	for($i=0;$i<=6;$i++){
 		//echo $i.ses("test");
-		if(ses("test") != "FALSE" && ses("test") != ""){
+		if(ses("test") != "false" && ses("test") != ""){
 			$i = 6;
 		} else {
 			echo sed("test",rand(111111,999999));

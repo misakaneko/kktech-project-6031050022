@@ -14,9 +14,9 @@
               <h1 class="mb-3">Automatic Library</h1>
               <p class="mb-5">Welcome</p>
               <div class="input-group input-group-newsletter">
-                <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon">
+                <input type="email" class="form-control" placeholder="Studebt ID..." aria-label="Enter email..." aria-describedby="basic-addon">
                 <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button">Notify Me!</button>
+                  <button class="btn btn-secondary" type="button">Login</button>
                 </div>
               </div>
             </div>

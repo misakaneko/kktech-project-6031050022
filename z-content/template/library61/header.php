@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Coming Soon - Start Bootstrap Theme</title>
+    <title>เครื่องยืมคืนหนังสืออัตโนมัติ</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/z-content/template/library61/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

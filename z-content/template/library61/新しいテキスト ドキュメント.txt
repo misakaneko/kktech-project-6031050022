@@ -1,0 +1,73 @@
+ตั้งค่าเว็บ
+array(
+	id,
+	type,
+	name => template,
+	data(
+		title
+		setting(
+		)
+	)
+)
+ข้อมูล Client
+ status
+ 0
+ 1
+array(
+	id,
+	type => nodemcu,
+	name => serial,
+	data(
+		username
+		book id(
+			book id,
+			book id,
+			book id,
+			...
+			...
+			...
+			book id
+		)
+		status
+	)
+)
+array 
+ข้อมูลชื่อผู้ใช้
+ status
+ 1 นักศึกษา
+ 2 ผู้ดูแลระบบ
+ 3 ถูกระงับการใช้งาน
+array(
+	id,
+	type,
+	name => username,
+	data(
+		friend name
+		last name
+		status
+		date
+	),
+)
+ข้อมูลหนังสือ
+array(
+	id,
+	type,
+	name => book id,
+	data(
+		name
+		status
+		date
+	),
+)
+ข้อมูลการยืม
+array(
+	id,
+	type,
+	name => username,
+	data(
+		book id
+		Reception time
+		Delivery time
+		status
+	),
+)

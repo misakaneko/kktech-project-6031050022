@@ -25,9 +25,9 @@
 		$value = base74("encode", $value, bit, key);
 		$sql = "UPDATE data SET data='$value' WHERE type='$type' and name='$name'";
 		if ($dsv_con->query($sql) === TRUE) {
-			echo "true";
+			return "true";
 		} else {
-			echo "Error updating record: " . $dsv_con->error;
+			return "Error updating record: " . $dsv_con->error;
 		}
 	}
 	
