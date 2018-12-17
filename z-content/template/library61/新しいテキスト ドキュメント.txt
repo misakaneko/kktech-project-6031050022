@@ -51,7 +51,7 @@ array(
 ข้อมูลหนังสือ
 array(
 	id,
-	type,
+	type => rfid,
 	name => book id,
 	data(
 		name

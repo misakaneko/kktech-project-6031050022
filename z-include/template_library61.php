@@ -1,6 +1,7 @@
 <?php
 define('username',substr(md5('username'.key),0,6));
 define('nodemcu',substr(md5('nodemcu'.key),0,6));
+define('rfid',substr(md5('rfid'.key),0,6));
 /*$data = json_encode(array(
 	'id' => 1,
 	'type' => username,
@@ -41,7 +42,16 @@ if(isset($_GET['api'])){
 		################################################################# 
 		if($node['status'] == 1){
 			if(isset($_GET['keycard'])){
-				echo $_GET['keycard'];
+				if(sql_load(rfid, sha1($_GET['keycard'].key), 1) != 'false'){
+					if(preg_match('/'.sha1($_GET['keycard'].key).'/i', json_encode($node)) != 1){
+						echo sql_load(rfid, sha1($_GET['keycard'].key), 1);
+						//echo json_encode($node['book id']);
+						//$node['book id'] = array((count($node['book id']) + 1) => sha1($_GET['keycard'].key));
+						$node['book id'][(count($node['book id']) + 1)] = sha1($_GET['keycard'].key);
+						echo json_encode($node);
+						echo preg_match('/'.sha1($_GET['keycard'].key).'/i', json_encode($node));
+					} else {}
+				} else {}
 			} else {}
 		} else {}
 		################################################################# Login
