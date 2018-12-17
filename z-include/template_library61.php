@@ -51,7 +51,12 @@ if(isset($_GET['api'])){
 							echo json_encode(array('status' => 0));
 						}
 					} else {
-						echo json_encode(array('status' => 0));
+						$HHH = str_replace(sha1($_GET['keycard'].key),"null",json_encode($node));
+						if(sql_update(nodemcu, $_GET['api'], $HHH) == 'true'){
+							echo json_encode(array('status' => 1));
+						} else {
+							echo json_encode(array('status' => 0));
+						}
 					}
 				} else {}
 			} else {}

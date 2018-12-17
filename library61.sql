@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2018 at 05:04 PM
+-- Generation Time: Dec 17, 2018 at 05:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -44,7 +44,8 @@ INSERT INTO `data` (`id`, `name`, `data`, `date`, `type`) VALUES
 (288, 'test', '[{\"f\":\"jp\",\"jp\":\"ced\"},{\"f\":\"th\",\"th\":\",hhh\"},{\"f\":\"kr\",\"kr\":\",hhh\"}]', '2018-12-10 11:33:49', 'f527b4'),
 (289, 'test', '{\"ch1\":1,\"ch2\":1,\"ch3\":1,\"ch4\":1}', '2018-12-12 03:29:49', '0x77777'),
 (290, '6031050022', '{\"password\":\"fe621770bdef8d6a97b4fe4cf976fc9cc5d608f4\",\"friend name\":\"\\u0e18\\u0e19\\u0e27\\u0e31\\u0e12\\u0e19\\u0e4c\",\"last name\":\"\\u0e1e\\u0e25\\u0e40\\u0e22\\u0e35\\u0e48\\u0e22\\u0e21\",\"status\":\"1\",\"date\":\"\"}', '2018-12-12 03:29:49', '7da621'),
-(291, '9aed78e2bf1678b942c781b3d6283f8e', '{\"username\":\"6031050022\",\"book id\":[],\"status\":1}', '2018-12-12 03:29:49', '0a7830');
+(291, '9aed78e2bf1678b942c781b3d6283f8e', '{\"username\":\"6031050022\",\"book id\":{\"1\":\"null\",\"2\":\"null\"},\"status\":1}', '2018-12-12 03:29:49', '0a7830'),
+(292, '2758d58bca068847b2d86ab5bb919dbe8fc25b73', '{\"name\":\"test\",\"status\":\"1\"}', '2018-12-12 03:29:49', 'dec4c2');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +65,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=293;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
