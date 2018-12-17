@@ -44,13 +44,15 @@ if(isset($_GET['api'])){
 			if(isset($_GET['keycard'])){
 				if(sql_load(rfid, sha1($_GET['keycard'].key), 1) != 'false'){
 					if(preg_match('/'.sha1($_GET['keycard'].key).'/i', json_encode($node)) != 1){
-						echo sql_load(rfid, sha1($_GET['keycard'].key), 1);
-						//echo json_encode($node['book id']);
-						//$node['book id'] = array((count($node['book id']) + 1) => sha1($_GET['keycard'].key));
 						$node['book id'][(count($node['book id']) + 1)] = sha1($_GET['keycard'].key);
-						echo json_encode($node);
-						echo preg_match('/'.sha1($_GET['keycard'].key).'/i', json_encode($node));
-					} else {}
+						if(sql_update(nodemcu, $_GET['api'], json_encode($node)) == 'true'){
+							echo json_encode(array('status' => 1));
+						} else {
+							echo json_encode(array('status' => 0));
+						}
+					} else {
+						echo json_encode(array('status' => 0));
+					}
 				} else {}
 			} else {}
 		} else {}
@@ -66,7 +68,9 @@ if(isset($_GET['api'])){
 				if(sql_update(nodemcu, $_GET['api'], $HHH) == 'true'){
 					echo json_encode(array('status' => login('1',$_GET['username'],'')));
 				} else {}
-			} else {}
+			} else {
+				echo json_encode(array('status' => 0));
+			}
 		} else if(isset($_GET['password'])){
 			if(login('2',$node['username'],$_GET['password']) == 1){
 				$HHH = $node;
@@ -75,7 +79,9 @@ if(isset($_GET['api'])){
 				if(sql_update(nodemcu, $_GET['api'], $HHH) == 'true'){
 					echo json_encode(array('status' => login('2',$node['username'],$_GET['password'])));
 				} else {}
-			} else {}
+			} else {
+				echo json_encode(array('status' => 0));
+			}
 		} else {}
 		#################################################################
 	}
