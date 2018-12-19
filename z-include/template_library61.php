@@ -41,16 +41,13 @@ if(isset($_GET['api'])){
 		if(preg_match('/0|1|2|3|4|5|6|7|8|9/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						$Jsonl = sql_load(keypad, $_GET['api'], 1);
-						$Jsonl = json_decode($Jsonl, true);
-						$Jsonl['data'] = $Jsonl['data'].$_GET['keypad'];
-						if(sql_update(keypad, $_GET['api'], json_encode($Jsonl))){
-							$Jsonl = json_encode($Jsonl);
-							$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
-							echo $Jsonl;
-						} else {}
+						$FFFFF = sql_load(keypad, $_GET['api'], 1);
+						$HHHHH = json_decode($FFFFF, true);
+						$HHHHH['data'] = $_GET['keypad'];
+						$FFFFF = json_encode($HHHHH);
+						echo $FFFFF;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/A/i', $_GET['keypad'])){
@@ -60,54 +57,63 @@ if(isset($_GET['api'])){
 						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
 						echo $Jsonl;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/B/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						echo sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+						echo $Jsonl;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/C/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						$Jsonl = array('data'=>'');
+						$Jsonl = array('data'=>[]);
 						if(sql_update(keypad, $_GET['api'], json_encode($Jsonl))){
-							echo json_encode($Jsonl);
+							$Jsonl = json_encode($Jsonl);
+							$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+							echo $Jsonl;
 						} else {}
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/D/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						echo sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+						echo $Jsonl;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/E/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						echo sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+						echo $Jsonl;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else if(preg_match('/F/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						echo sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+						echo $Jsonl;
 					} else {
-						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>[])));
 					}
 				}
 			} else {}
-		die();
 	} else {}
 	if(sql_load(nodemcu, $_GET['api'], 1) == 'false'){} else {
 		$nodes = sql_load(nodemcu, $_GET['api'], 1);

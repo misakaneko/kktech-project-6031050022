@@ -1,11 +1,11 @@
 <?php
-	require constant("folder")."seo.php";
-	require constant("folder")."filelog.php";
-	require constant("folder")."base74.php";
-	require constant("folder")."mysql.php";
-	require constant("folder")."multilanguage.php";
-	require constant("folder")."template_".TEMPLATE.".php";
+	require_once constant("folder")."seo.php";
+	require_once constant("folder")."filelog.php";
+	require_once constant("folder")."base74.php";
+	require_once constant("folder")."mysql.php";
+	require_once constant("folder")."multilanguage.php";
+	require_once constant("folder")."template_".TEMPLATE.".php";
 	if(isBot()){exit();}
 	
-	//require constant("folder")."template-loading.php";
+	//require_once constant("folder")."template-loading.php";
 ?>
