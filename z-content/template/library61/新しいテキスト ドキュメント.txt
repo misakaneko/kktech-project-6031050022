@@ -9,7 +9,7 @@ array(
 		)
 	)
 )
-ข้อมูล Client
+ข้อมูล Client /
  status
  0
  1
@@ -32,7 +32,7 @@ array(
 	)
 )
 array 
-ข้อมูลชื่อผู้ใช้
+ข้อมูลชื่อผู้ใช้ /
  status
  1 นักศึกษา
  2 ผู้ดูแลระบบ
@@ -48,7 +48,7 @@ array(
 		date
 	),
 )
-ข้อมูลหนังสือ
+ข้อมูลหนังสือ /
 array(
 	id,
 	type => rfid,
@@ -58,6 +58,15 @@ array(
 		status
 		date
 	),
+)
+ปุ่มกด
+array
+	id,
+	type,
+	name => serial,
+	data(
+		keypad
+	)
 )
 ข้อมูลการยืม
 array(

@@ -4,7 +4,7 @@
 		$date = date("Y-m-d h:i:s");
 		$data = base74("encode", $value, bit, key);
 		$sql = "INSERT INTO data (type, name, data, date) VALUES ('$type', '$name', '$data', '$date')";
-		if ($dsv_con->query($sql) === TRUE) {echo "true";} else {echo "Error: " . $sql . "<br>" . $dsv_con->error;}
+		if ($dsv_con->query($sql) === TRUE) {return "true";} else {return "Error: " . $sql . "<br>" . $dsv_con->error;}
 	}
 	function sql_load($type, $name, $limit){
 		global $dsv_con;
