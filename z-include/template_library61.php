@@ -45,7 +45,9 @@ if(isset($_GET['api'])){
 						$Jsonl = json_decode($Jsonl, true);
 						$Jsonl['data'] = $Jsonl['data'].$_GET['keypad'];
 						if(sql_update(keypad, $_GET['api'], json_encode($Jsonl))){
-							echo json_encode($Jsonl);
+							$Jsonl = json_encode($Jsonl);
+							$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+							echo $Jsonl;
 						} else {}
 					} else {
 						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
@@ -54,7 +56,9 @@ if(isset($_GET['api'])){
 			} else if(preg_match('/A/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
-						echo sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = sql_load(keypad, $_GET['api'], 1);
+						$Jsonl = json_decode($Jsonl, true);$Jsonl['type'] = 'LCD';$Jsonl = json_encode($Jsonl);
+						echo $Jsonl;
 					} else {
 						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
 					}
