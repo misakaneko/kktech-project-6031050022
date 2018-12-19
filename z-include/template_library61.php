@@ -38,28 +38,66 @@ function login($step,$value,$pass){
 }
 if(isset($_GET['api'])){
 	if(isset($_GET['keypad'])){
-		if($_GET['keypad'] == 0
-			|| $_GET['keypad'] == 1
-			|| $_GET['keypad'] == 2
-			|| $_GET['keypad'] == 3
-			|| $_GET['keypad'] == 4
-			|| $_GET['keypad'] == 5
-			|| $_GET['keypad'] == 6
-			|| $_GET['keypad'] == 7
-			|| $_GET['keypad'] == 8
-			|| $_GET['keypad'] == 9
-			|| $_GET['keypad'] == 'A'
-			|| $_GET['keypad'] == 'B'
-			|| $_GET['keypad'] == 'C'
-			|| $_GET['keypad'] == 'D'
-			|| $_GET['keypad'] == '#'
-			|| $_GET['keypad'] == '*'){
+		if(preg_match('/0|1|2|3|4|5|6|7|8|9/i', $_GET['keypad'])){
 				if(strlen($_GET['keypad']) == 1){
 					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
 						$Jsonl = sql_load(keypad, $_GET['api'], 1);
 						$Jsonl = json_decode($Jsonl, true);
 						$Jsonl['data'] = $Jsonl['data'].$_GET['keypad'];
-						echo json_encode($Jsonl);
+						if(sql_update(keypad, $_GET['api'], json_encode($Jsonl))){
+							echo json_encode($Jsonl);
+						} else {}
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/A/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						echo sql_load(keypad, $_GET['api'], 1);
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/B/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						echo sql_load(keypad, $_GET['api'], 1);
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/C/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						$Jsonl = array('data'=>'');
+						if(sql_update(keypad, $_GET['api'], json_encode($Jsonl))){
+							echo json_encode($Jsonl);
+						} else {}
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/D/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						echo sql_load(keypad, $_GET['api'], 1);
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/E/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						echo sql_load(keypad, $_GET['api'], 1);
+					} else {
+						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
+					}
+				}
+			} else if(preg_match('/F/i', $_GET['keypad'])){
+				if(strlen($_GET['keypad']) == 1){
+					if(sql_load(keypad, $_GET['api'], 1) != 'false'){
+						echo sql_load(keypad, $_GET['api'], 1);
 					} else {
 						sql_newdata(keypad, $_GET['api'], json_encode(array('data'=>'')));
 					}
